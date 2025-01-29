@@ -32,11 +32,11 @@ const SettingsIcon = () => (
 );
 
 const navigation = [
-  { name: 'Dashboard', icon: DashboardIcon, href: '#' },
-  { name: 'Customers', icon: CustomersIcon, href: '#' },
-  { name: 'Orders', icon: OrdersIcon, href: '#' },
-  { name: 'Analytics', icon: AnalyticsIcon, href: '#' },
-  { name: 'Settings', icon: SettingsIcon, href: '#' },
+  { name: 'Dashboard', icon: DashboardIcon, href: '#', current: true },
+  { name: 'Customers', icon: CustomersIcon, href: '#', current: false },
+  { name: 'Orders', icon: OrdersIcon, href: '#', current: false },
+  { name: 'Analytics', icon: AnalyticsIcon, href: '#', current: false },
+  { name: 'Settings', icon: SettingsIcon, href: '#', current: false },
 ];
 
 export default function Sidebar({ open, setOpen }) {
@@ -65,7 +65,12 @@ export default function Sidebar({ open, setOpen }) {
             <a
               key={item.name}
               href={item.href}
-              className="flex items-center px-4 py-3 text-sm font-medium rounded-full text-gray-600 hover:bg-gray-100 hover:text-primary-600 dark:text-gray-300 dark:hover:bg-gray-700/50 dark:hover:text-primary-400 transition-all duration-200 ease-in-out group"
+              className={clsx(
+                "flex items-center px-4 py-3 text-sm font-medium rounded-full transition-all duration-200 ease-in-out group",
+                item.current
+                  ? "nav-item-active"
+                  : "text-gray-600 hover:bg-gray-100 hover:text-primary-600 dark:text-gray-300 dark:hover:bg-gray-700/50 dark:hover:text-primary-400"
+              )}
             >
               <span className="mr-3 text-gray-400 group-hover:text-primary-500 dark:text-gray-500 dark:group-hover:text-primary-400 transition-colors duration-200">
                 <item.icon />
