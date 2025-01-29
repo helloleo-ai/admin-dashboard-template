@@ -26,8 +26,8 @@ export default function Sidebar({ open, setOpen }) {
           open ? 'translate-x-0' : '-translate-x-full'
         )}
       >
-        <div className="flex items-center justify-center h-16 flex-shrink-0 px-4 bg-primary-600 dark:bg-primary-800">
-          <h1 className="text-xl font-bold text-white">Admin Dashboard</h1>
+        <div className="flex items-center justify-center h-16 flex-shrink-0 px-4 bg-gradient-to-r from-primary-600 to-primary-500 dark:from-primary-800 dark:to-primary-700">
+          <h1 className="text-xl font-bold text-white tracking-tight">Admin Dashboard</h1>
         </div>
 
         <nav className="flex-1 px-2 py-4 space-y-1">
@@ -35,7 +35,7 @@ export default function Sidebar({ open, setOpen }) {
             <a
               key={item.name}
               href={item.href}
-              className="flex items-center px-2 py-2 text-sm font-medium rounded-md text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
+              className="flex items-center px-3 py-2.5 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-gray-700/50 transition-colors duration-200"
             >
               <item.icon className="mr-3 h-6 w-6" />
               {item.name}
