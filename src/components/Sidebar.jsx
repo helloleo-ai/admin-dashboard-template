@@ -40,7 +40,7 @@ const navigation = [
   { name: 'Settings', icon: SettingsIcon, href: '/settings' },
 ];
 
-export default function Sidebar({ open, setOpen }) {
+function Sidebar({ open, setOpen }) {
   const location = useLocation();
   return (
     <>
@@ -85,3 +85,5 @@ export default function Sidebar({ open, setOpen }) {
     </>
   )
 }
+
+export default Sidebar;
