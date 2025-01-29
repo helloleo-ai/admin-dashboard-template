@@ -2,7 +2,7 @@ import clsx from 'clsx'
 
 // Simple SVG icons as components
 const DashboardIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
     <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z" />
   </svg>
 );
@@ -66,13 +66,13 @@ export default function Sidebar({ open, setOpen }) {
               key={item.name}
               href={item.href}
               className={clsx(
-                "flex items-center px-4 py-3 text-sm font-medium rounded-full transition-all duration-200 ease-in-out group",
+                "flex items-center px-5 py-4 text-base font-medium rounded-full transition-all duration-200 ease-in-out group",
                 item.current
                   ? "nav-item-active"
                   : "text-gray-600 hover:bg-gray-100 hover:text-primary-600 dark:text-gray-300 dark:hover:bg-gray-700/50 dark:hover:text-primary-400"
               )}
             >
-              <span className="mr-3 text-gray-400 group-hover:text-primary-500 dark:text-gray-500 dark:group-hover:text-primary-400 transition-colors duration-200">
+              <span className="mr-4 text-gray-400 group-hover:text-primary-500 dark:text-gray-500 dark:group-hover:text-primary-400 transition-colors duration-200">
                 <item.icon />
               </span>
               {item.name}
