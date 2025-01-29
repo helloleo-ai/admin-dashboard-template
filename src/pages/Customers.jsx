@@ -46,8 +46,8 @@ export default function Customers() {
   );
 
   return (
-    <div className="px-4 sm:px-6 lg:px-8 py-8">
-      <div className="sm:flex sm:items-center">
+    <div className="py-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         <div className="sm:flex-auto">
           <h1 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">Customers</h1>
           <p className="mt-2 text-sm text-gray-700 dark:text-gray-300">
@@ -64,7 +64,8 @@ export default function Customers() {
         </div>
       </div>
       
-      <div className="mt-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+        <div className="py-4">
         <input
           type="text"
           placeholder="Search customers..."
@@ -137,6 +138,7 @@ export default function Customers() {
               </table>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </div>
