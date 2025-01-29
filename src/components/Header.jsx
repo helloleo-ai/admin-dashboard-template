@@ -2,7 +2,7 @@ import { HiMenu, HiSearch, HiBell, HiMoon, HiSun } from 'react-icons/hi'
 
 export default function Header({ sidebarOpen, setSidebarOpen, darkMode, toggleDarkMode }) {
   return (
-    <header className="sticky top-0 z-10 flex h-16 flex-shrink-0 bg-white/80 dark:bg-gray-800/90 backdrop-blur-sm shadow-sm border-b border-gray-100 dark:border-gray-700">
+    <header className="sticky top-0 z-10 flex h-16 flex-shrink-0 bg-white/90 dark:bg-gray-800/95 backdrop-blur-md shadow-lg">
       <button
         type="button"
         className="px-4 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500 lg:hidden"
@@ -21,7 +21,7 @@ export default function Header({ sidebarOpen, setSidebarOpen, darkMode, toggleDa
               <input
                 type="search"
                 placeholder="Search..."
-                className="block w-full rounded-lg border-0 bg-gray-50 py-2 pl-10 pr-3 text-sm placeholder-gray-500 focus:ring-2 focus:ring-primary-500 focus:text-gray-900 focus:placeholder-gray-400 focus:outline-none dark:bg-gray-700/50 dark:text-gray-200 transition-colors duration-200"
+                className="block w-full rounded-xl border-0 bg-gray-50/50 py-2.5 pl-10 pr-3 text-sm placeholder-gray-400 focus:ring-2 focus:ring-primary-400 focus:bg-white focus:text-gray-900 focus:placeholder-gray-500 focus:outline-none dark:bg-gray-700/40 dark:focus:bg-gray-700/60 dark:text-gray-200 transition-all duration-200 ease-in-out"
               />
             </div>
           </div>
