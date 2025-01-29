@@ -73,7 +73,7 @@ export default function Header({ sidebarOpen, setSidebarOpen, darkMode, toggleDa
               />
             </div>
           </div>
-        </motion.div>
+        </div>
         
         <div className="flex items-center gap-2">
           <nav className="hidden md:flex items-center gap-1">
@@ -110,10 +110,10 @@ export default function Header({ sidebarOpen, setSidebarOpen, darkMode, toggleDa
                 src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                 alt="User avatar"
               />
-            </motion.button>
+            </button>
           </div>
         </div>
       </div>
-    </motion.header>
+    </header>
   );
 }
