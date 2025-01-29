@@ -48,17 +48,20 @@ export default function Customers() {
   return (
     <div className="py-6">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-        <div className="sm:flex-auto">
-          <h1 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">Customers</h1>
-          <p className="mt-2 text-sm text-gray-700 dark:text-gray-300">
-            A list of all customers including their name, title, email and role.
-          </p>
-        </div>
-        <div className="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">Customers</h1>
+            <p className="mt-2 text-sm text-gray-700 dark:text-gray-300">
+              A list of all customers including their name, title, email and role.
+            </p>
+          </div>
           <button
             type="button"
-            className="btn btn-primary"
+            className="btn btn-primary flex items-center gap-2"
           >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clipRule="evenodd" />
+            </svg>
             Add customer
           </button>
         </div>
@@ -66,20 +69,29 @@ export default function Customers() {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         <div className="py-4">
-        <input
-          type="text"
-          placeholder="Search customers..."
-          className="search-bar max-w-md"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-      </div>
+          <div className="flex items-center gap-4">
+            <div className="relative flex-1 max-w-md">
+              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
+                </svg>
+              </div>
+              <input
+                type="text"
+                placeholder="Search customers..."
+                className="search-bar"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+            </div>
+          </div>
+        </div>
 
       <div className="mt-8 flex flex-col">
         <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div className="inline-block min-w-full py-2 align-middle">
-            <div className="overflow-hidden shadow-sm ring-1 ring-black ring-opacity-5 rounded-lg">
-              <table className="min-w-full divide-y divide-gray-300 dark:divide-gray-700">
+            <div className="card overflow-hidden">
+              <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                 <thead className="bg-gray-50 dark:bg-gray-800">
                   <tr>
                     <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 dark:text-gray-100 sm:pl-6">
