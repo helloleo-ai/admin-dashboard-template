@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+import { Link, useLocation } from 'react-router-dom'
 
 // Simple SVG icons as components
 const DashboardIcon = () => (
@@ -32,14 +33,15 @@ const SettingsIcon = () => (
 );
 
 const navigation = [
-  { name: 'Dashboard', icon: DashboardIcon, href: '/', current: true },
-  { name: 'Customers', icon: CustomersIcon, href: '/customers', current: false },
-  { name: 'Orders', icon: OrdersIcon, href: '/orders', current: false },
-  { name: 'Analytics', icon: AnalyticsIcon, href: '/analytics', current: false },
-  { name: 'Settings', icon: SettingsIcon, href: '/settings', current: false },
+  { name: 'Dashboard', icon: DashboardIcon, href: '/' },
+  { name: 'Customers', icon: CustomersIcon, href: '/customers' },
+  { name: 'Orders', icon: OrdersIcon, href: '/orders' },
+  { name: 'Analytics', icon: AnalyticsIcon, href: '/analytics' },
+  { name: 'Settings', icon: SettingsIcon, href: '/settings' },
 ];
 
 export default function Sidebar({ open, setOpen }) {
+  const location = useLocation();
   return (
     <>
       <div
@@ -67,7 +69,7 @@ export default function Sidebar({ open, setOpen }) {
               href={item.href}
               className={clsx(
                 "flex items-center px-5 py-4 text-base font-medium rounded-full transition-all duration-200 ease-in-out group",
-                item.current
+                location.pathname === item.href
                   ? "nav-item-active"
                   : "text-gray-600 hover:bg-gray-100 hover:text-primary-600 dark:text-gray-300 dark:hover:bg-gray-700/50 dark:hover:text-primary-400"
               )}
