@@ -32,11 +32,11 @@ const SettingsIcon = () => (
 );
 
 const navigation = [
-  { name: 'Dashboard', icon: DashboardIcon, href: '#', current: true },
-  { name: 'Customers', icon: CustomersIcon, href: '#', current: false },
-  { name: 'Orders', icon: OrdersIcon, href: '#', current: false },
-  { name: 'Analytics', icon: AnalyticsIcon, href: '#', current: false },
-  { name: 'Settings', icon: SettingsIcon, href: '#', current: false },
+  { name: 'Dashboard', icon: DashboardIcon, href: '/', current: true },
+  { name: 'Customers', icon: CustomersIcon, href: '/customers', current: false },
+  { name: 'Orders', icon: OrdersIcon, href: '/orders', current: false },
+  { name: 'Analytics', icon: AnalyticsIcon, href: '/analytics', current: false },
+  { name: 'Settings', icon: SettingsIcon, href: '/settings', current: false },
 ];
 
 export default function Sidebar({ open, setOpen }) {
