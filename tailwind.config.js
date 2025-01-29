@@ -21,6 +21,23 @@ export default {
           900: '#0c4a6e',
         },
       },
+      fontFamily: {
+        sans: ['Inter var', 'system-ui', 'sans-serif'],
+      },
+      spacing: {
+        '72': '18rem',
+        '84': '21rem',
+        '96': '24rem',
+      },
+      animation: {
+        'fade-in': 'fadeIn 0.2s ease-in-out',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+      },
     },
   },
   plugins: [],
