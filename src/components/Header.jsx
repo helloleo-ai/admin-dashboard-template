@@ -1,42 +1,68 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Bars3Icon,
-  MagnifyingGlassIcon,
-  BellIcon,
-  SunIcon, 
-  MoonIcon,
-  ChatBubbleLeftIcon,
-  Cog6ToothIcon
-} from '@heroicons/react/24/outline';
+
+// Simple SVG icons as components
+const MenuIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+    <path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd" />
+  </svg>
+);
+
+const SearchIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+    <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
+  </svg>
+);
+
+const BellIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+    <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zm0 16a3 3 0 01-3-3h6a3 3 0 01-3 3z" />
+  </svg>
+);
+
+const ChatIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+    <path fillRule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clipRule="evenodd" />
+  </svg>
+);
+
+const SettingsIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+    <path fillRule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />
+  </svg>
+);
+
+const MoonIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+  </svg>
+);
+
+const SunIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+    <path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd" />
+  </svg>
+);
 
 export default function Header({ sidebarOpen, setSidebarOpen, darkMode, toggleDarkMode }) {
   const [isSearchFocused, setIsSearchFocused] = useState(false);
   const [notifications, setNotifications] = useState(3);
 
   return (
-    <motion.header 
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      className="sticky top-0 z-10 flex h-16 flex-shrink-0 bg-white/80 dark:bg-gray-800/90 backdrop-blur-lg shadow-sm"
-    >
+    <header className="sticky top-0 z-10 flex h-16 flex-shrink-0 bg-white/80 dark:bg-gray-800/90 backdrop-blur-lg shadow-sm">
       <button
         type="button"
         className="px-4 text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500 lg:hidden"
         onClick={() => setSidebarOpen(true)}
       >
-        <Bars3Icon className="h-6 w-6" />
+        <MenuIcon />
       </button>
       
       <div className="flex flex-1 items-center justify-between px-4 gap-4">
-        <motion.div 
-          className="flex flex-1"
-          animate={{ width: isSearchFocused ? '100%' : '100%' }}
-        >
+        <div className="flex flex-1">
           <div className="flex w-full md:ml-0">
             <div className="relative w-full max-w-2xl">
               <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
-                <MagnifyingGlassIcon className="h-5 w-5 text-gray-400" />
+                <SearchIcon />
               </div>
               <input
                 type="search"
@@ -50,45 +76,35 @@ export default function Header({ sidebarOpen, setSidebarOpen, darkMode, toggleDa
         </motion.div>
         
         <div className="flex items-center gap-2">
-          <motion.nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden md:flex items-center gap-1">
             <button className="nav-item">
-              <ChatBubbleLeftIcon className="h-5 w-5" />
+              <ChatIcon />
               <span className="hidden lg:inline">Messages</span>
             </button>
             <button className="nav-item relative">
-              <BellIcon className="h-5 w-5" />
+              <BellIcon />
               <span className="hidden lg:inline">Notifications</span>
               {notifications > 0 && (
-                <motion.span
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-red-500 text-white text-xs flex items-center justify-center"
-                >
+                <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-red-500 text-white text-xs flex items-center justify-center">
                   {notifications}
-                </motion.span>
+                </span>
               )}
             </button>
             <button className="nav-item">
-              <Cog6ToothIcon className="h-5 w-5" />
+              <SettingsIcon />
               <span className="hidden lg:inline">Settings</span>
             </button>
-          </motion.nav>
+          </nav>
 
           <div className="flex items-center gap-2">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            <button
               onClick={toggleDarkMode}
               className="p-2 rounded-full text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700/50 transition-colors"
             >
-              {darkMode ? <SunIcon className="h-5 w-5" /> : <MoonIcon className="h-5 w-5" />}
-            </motion.button>
+              {darkMode ? <SunIcon /> : <MoonIcon />}
+            </button>
 
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2 p-0.5 rounded-full bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 transition-all duration-200"
-            >
+            <button className="flex items-center gap-2 p-0.5 rounded-full bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 transition-all duration-200">
               <img
                 className="h-8 w-8 rounded-full border-2 border-white dark:border-gray-800"
                 src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
