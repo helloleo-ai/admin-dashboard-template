@@ -71,9 +71,9 @@ function Sidebar({ open, setOpen }) {
 
         <nav className="flex-1 px-3 py-4 space-y-1 overflow-y-auto">
           {navigation.map((item) => (
-            <a
+            <Link
               key={item.name}
-              href={item.href}
+              to={item.href}
               className={clsx(
                 "flex items-center px-5 py-4 text-base font-medium rounded-full transition-all duration-200 ease-in-out group",
                 location.pathname === item.href
@@ -85,7 +85,7 @@ function Sidebar({ open, setOpen }) {
                 <item.icon />
               </span>
               {item.name}
-            </a>
+            </Link>
           ))}
         </nav>
       </div>
