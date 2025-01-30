@@ -124,7 +124,7 @@ export default function Header({ sidebarOpen, setSidebarOpen, darkMode, toggleDa
               >
                 <img
                   className="h-8 w-8 rounded-full border-2 border-white dark:border-gray-800"
-                  src="https://lumiere-a.akamaihd.net/v1/images/obi-wan-kenobi-main_95819950.jpeg"
+                  src="https://static.wikia.nocookie.net/duels/images/3/30/7D8F3561-6FE5-4907-B3D9-1CCE018A0273.jpg/revision/latest/scale-to-width-down/1200?cb=20210224170439"
                   alt="Obi-Wan Kenobi avatar"
                 />
               </button>
