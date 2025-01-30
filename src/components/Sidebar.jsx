@@ -66,7 +66,7 @@ function Sidebar({ open, setOpen }) {
         )}
       >
         <div className="flex items-center justify-center h-16 flex-shrink-0 px-4 bg-white/80 dark:bg-gray-800/90 backdrop-blur-lg border-b border-gray-200 dark:border-gray-700">
-          <h1 className="text-xl font-bold bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent">Admin Dashboard</h1>
+          <h1 className="text-xl font-bold bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent">Dashboard Admin Template by Leo</h1>
         </div>
 
         <nav className="flex-1 px-3 py-4 space-y-1 overflow-y-auto">
