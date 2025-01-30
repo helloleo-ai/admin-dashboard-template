@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import Chart from 'react-apexcharts'
-import { motion } from 'framer-motion'
 
 export default function Dashboard() {
   const stats = [
@@ -95,13 +94,10 @@ export default function Dashboard() {
         <div className="py-4">
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {stats.map((item, index) => (
-              <motion.div
+              <div
                 key={item.name}
-                className="card"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ scale: 1.02 }}
+                className="card animate-fadeIn hover:scale-[1.02] transition-transform duration-200"
+                style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="flex items-center justify-between">
                   <h3 className="text-lg font-medium text-gray-900 dark:text-gray-100">{item.name}</h3>
@@ -109,14 +105,12 @@ export default function Dashboard() {
                     {item.change}
                   </span>
                 </div>
-                <motion.p 
-                  className="mt-2 text-3xl font-semibold text-gray-900 dark:text-gray-100"
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
+                <p 
+                  className="mt-2 text-3xl font-semibold text-gray-900 dark:text-gray-100 animate-scaleIn"
+                  style={{ animationDelay: `${index * 100 + 200}ms` }}
                 >
                   {item.value}
-                </motion.p>
+                </p>
               </motion.div>
             ))}
           </div>
