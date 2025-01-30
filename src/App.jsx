@@ -5,6 +5,7 @@ import Header from './components/Header'
 import Dashboard from './components/Dashboard'
 import Customers from './pages/Customers'
 import Orders from './pages/Orders'
+import Profile from './pages/Profile'
 
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -32,6 +33,7 @@ function App() {
             <Route path="/" element={<Dashboard />} />
             <Route path="/customers" element={<Customers />} />
             <Route path="/orders" element={<Orders />} />
+            <Route path="/profile" element={<Profile />} />
           </Routes>
         </main>
       </div>
