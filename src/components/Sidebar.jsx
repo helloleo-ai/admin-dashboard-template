@@ -46,7 +46,7 @@ function Sidebar({ open, setOpen }) {
     <>
       <div
         className={clsx(
-          'fixed inset-0 bg-gray-600 bg-opacity-75 transition-opacity lg:hidden',
+          'fixed inset-0 bg-gray-600 bg-opacity-75 transition-opacity lg:hidden z-40',
           open ? 'opacity-100 ease-out duration-300' : 'opacity-0 ease-in duration-200 pointer-events-none'
         )}
         onClick={() => setOpen(false)}
@@ -54,7 +54,7 @@ function Sidebar({ open, setOpen }) {
 
       <div
         className={clsx(
-          'fixed inset-y-0 left-0 flex flex-col w-64 bg-white dark:bg-gray-800 transform transition-transform lg:translate-x-0 lg:static lg:inset-0',
+          'fixed inset-y-0 left-0 flex flex-col w-64 bg-white dark:bg-gray-800 transform transition-transform lg:translate-x-0 lg:static lg:inset-0 z-50',
           open ? 'translate-x-0' : '-translate-x-full'
         )}
       >
