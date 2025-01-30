@@ -3,7 +3,7 @@ import { useState } from 'react';
 const userProfile = {
   name: 'Obi-Wan Kenobi',
   email: 'obiwan.kenobi@jedi-council.rep',
-  avatar: 'https://static.wikia.nocookie.net/duels/images/3/30/7D8F3561-6FE5-4907-B3D9-1CCE018A0273.jpg/revision/latest/scale-to-width-down/1200?cb=20210224170439',
+  avatar: 'https://www.starwars.com/wp-content/uploads/2022/03/obi-wan-kenobi-poster-nologo_0.jpg',
   role: 'Administrator',
   department: 'Management',
   location: 'New York, USA',

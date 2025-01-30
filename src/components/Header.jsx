@@ -124,7 +124,7 @@ export default function Header({ sidebarOpen, setSidebarOpen, darkMode, toggleDa
               >
                 <img
                   className="h-8 w-8 rounded-full border-2 border-white dark:border-gray-800"
-                  src="https://static.wikia.nocookie.net/duels/images/3/30/7D8F3561-6FE5-4907-B3D9-1CCE018A0273.jpg/revision/latest/scale-to-width-down/1200?cb=20210224170439"
+                  src="https://www.starwars.com/wp-content/uploads/2022/03/obi-wan-kenobi-poster-nologo_0.jpg"
                   alt="Obi-Wan Kenobi avatar"
                 />
               </button>
