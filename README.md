@@ -26,7 +26,7 @@ A sleek, modern, and responsive admin dashboard template built with React, Vite,
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/react-admin-dashboard.git
+git clone git@github.com:helloleo-ai/admin-dashboard-template.git
 ```
 
 2. Install dependencies:
@@ -108,6 +108,6 @@ If you find this template helpful, please give it a ⭐️ on GitHub!
 
 ## 🔗 Links
 
-- [Documentation](https://github.com/yourusername/react-admin-dashboard/wiki)
-- [Report Bug](https://github.com/yourusername/react-admin-dashboard/issues)
-- [Request Feature](https://github.com/yourusername/react-admin-dashboard/issues)
+- [Documentation](https://github.com/helloleo-ai/admin-dashboard-template/wiki)
+- [Report Bug](https://github.com/helloleo-ai/admin-dashboard-template/issues)
+- [Request Feature](https://github.com/helloleo-ai/admin-dashboard-template/issues)
