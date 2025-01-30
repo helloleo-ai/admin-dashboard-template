@@ -111,7 +111,7 @@ export default function Dashboard() {
                 >
                   {item.value}
                 </p>
-              </motion.div>
+              </div>
             ))}
           </div>
 
