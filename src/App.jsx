@@ -7,6 +7,7 @@ import Customers from './pages/Customers'
 import Orders from './pages/Orders'
 import Profile from './pages/Profile'
 import Analytics from './pages/Analytics'
+import Settings from './pages/Settings'
 
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -36,6 +37,7 @@ function App() {
             <Route path="/orders" element={<Orders />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/analytics" element={<Analytics />} />
+            <Route path="/settings" element={<Settings />} />
           </Routes>
         </main>
       </div>
