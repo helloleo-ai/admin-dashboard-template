@@ -124,7 +124,7 @@ export default function Header({ sidebarOpen, setSidebarOpen, darkMode, toggleDa
               >
                 <img
                   className="h-8 w-8 rounded-full border-2 border-white dark:border-gray-800"
-                  src="https://www.starwars.com/wp-content/uploads/2022/03/obi-wan-kenobi-poster-nologo_0.jpg"
+                  src="https://terros.io/wp-content/uploads/2024/04/Leo.webp"
                   alt="Obi-Wan Kenobi avatar"
                 />
               </button>
