@@ -105,10 +105,7 @@ export default function Dashboard() {
                     {item.change}
                   </span>
                 </div>
-                <p 
-                  className="mt-2 text-3xl font-semibold text-gray-900 dark:text-gray-100 animate-scaleIn"
-                  style={{ animationDelay: `${index * 100 + 200}ms` }}
-                >
+                <p className="mt-2 text-3xl font-semibold text-gray-900 dark:text-gray-100">
                   {item.value}
                 </p>
               </div>
