@@ -62,8 +62,9 @@ export default function Profile() {
                     <p className="mt-1 text-sm text-gray-900 dark:text-gray-100">{userProfile.bio}</p>
                   </div>
                   <div>
-                  <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400">Member since</h3>
-                  <p className="mt-1 text-sm text-gray-900 dark:text-gray-100">{userProfile.joinDate}</p>
+                    <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400">Member since</h3>
+                    <p className="mt-1 text-sm text-gray-900 dark:text-gray-100">{userProfile.joinDate}</p>
+                  </div>
                 </div>
               </div>
             </div>
