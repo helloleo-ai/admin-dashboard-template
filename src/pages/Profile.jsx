@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
 const userProfile = {
-  name: 'Jane Cooper',
-  email: 'jane.cooper@example.com',
-  avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
+  name: 'Obi-Wan Kenobi',
+  email: 'obiwan.kenobi@jedi-council.rep',
+  avatar: 'https://lumiere-a.akamaihd.net/v1/images/obi-wan-kenobi-main_95819950.jpeg',
   role: 'Administrator',
   department: 'Management',
   location: 'New York, USA',
