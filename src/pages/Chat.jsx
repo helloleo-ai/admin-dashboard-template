@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const mockConversations = [
   {
@@ -121,6 +121,18 @@ export default function Chat() {
   const [activeConversation, setActiveConversation] = useState(conversations[0]);
   const [messages, setMessages] = useState(activeConversation.messages);
   const [newMessage, setNewMessage] = useState('');
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  // Close sidebar on larger screens
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setSidebarOpen(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const handleSendMessage = (e) => {
     e.preventDefault();
@@ -149,9 +161,19 @@ export default function Chat() {
   };
 
   return (
-    <div className="flex h-[calc(100vh-4rem)]">
+    <div className="flex h-[calc(100vh-4rem)] relative">
       {/* Main chat area */}
       <div className="flex-1 flex flex-col min-w-0">
+        {/* Mobile conversation toggle */}
+        <button
+          className="lg:hidden absolute right-4 top-4 z-10 p-2 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300"
+          onClick={() => setSidebarOpen(!sidebarOpen)}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z" />
+            <path d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z" />
+          </svg>
+        </button>
         <div className="p-4 border-b dark:border-gray-700 flex items-center gap-3">
           <img
             src={activeConversation.avatar}
@@ -217,9 +239,19 @@ export default function Chat() {
       </div>
 
       {/* Right sidebar - Conversations list */}
-      <div className="w-80 border-l dark:border-gray-700 bg-white dark:bg-gray-800 overflow-y-auto">
-        <div className="p-4 border-b dark:border-gray-700">
+      <div className={`fixed lg:static inset-y-0 right-0 w-80 border-l dark:border-gray-700 bg-white dark:bg-gray-800 overflow-y-auto transform transition-transform duration-300 ease-in-out ${
+        sidebarOpen ? 'translate-x-0' : 'translate-x-full lg:translate-x-0'
+      }`}>
+        <div className="p-4 border-b dark:border-gray-700 flex justify-between items-center">
           <h2 className="text-lg font-semibold">Conversations</h2>
+          <button
+            className="lg:hidden p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
+            onClick={() => setSidebarOpen(false)}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+            </svg>
+          </button>
         </div>
         <div className="divide-y dark:divide-gray-700">
           {conversations.map((conversation) => (
