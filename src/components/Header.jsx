@@ -116,10 +116,10 @@ export default function Header({ sidebarOpen, setSidebarOpen, darkMode, toggleDa
         
         <div className="flex items-center gap-2">
           <nav className="hidden md:flex items-center gap-1">
-            <button className="nav-item">
+            <Link to="/chat" className="nav-item">
               <ChatIcon />
               <span className="hidden lg:inline">Messages</span>
-            </button>
+            </Link>
             <div className="relative" ref={notificationsRef}>
               <button 
                 className="nav-item relative"
