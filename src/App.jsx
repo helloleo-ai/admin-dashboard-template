@@ -8,6 +8,7 @@ import Orders from './pages/Orders'
 import Profile from './pages/Profile'
 import Analytics from './pages/Analytics'
 import Settings from './pages/Settings'
+import Chat from './pages/Chat'
 
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -38,6 +39,7 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/analytics" element={<Analytics />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/chat" element={<Chat />} />
           </Routes>
         </main>
       </div>
