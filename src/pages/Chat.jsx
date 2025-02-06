@@ -198,7 +198,6 @@ export default function Chat() {
       </div>
 
       <form onSubmit={handleSendMessage} className="p-4 border-t dark:border-gray-700">
-      </div>
 
       {/* Right sidebar - Conversations list */}
       <div className="w-80 border-l dark:border-gray-700 bg-white dark:bg-gray-800 overflow-y-auto">
