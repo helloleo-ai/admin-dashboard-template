@@ -46,19 +46,45 @@ const SunIcon = () => (
 
 export default function Header({ sidebarOpen, setSidebarOpen, darkMode, toggleDarkMode }) {
   const [isSearchFocused, setIsSearchFocused] = useState(false);
-  const [notifications, setNotifications] = useState(3);
+  const [notifications, setNotifications] = useState([
+    {
+      id: 1,
+      message: "New order received from John Doe",
+      time: "5 minutes ago",
+      unread: true
+    },
+    {
+      id: 2,
+      message: "Your last report has been processed",
+      time: "1 hour ago",
+      unread: true
+    },
+    {
+      id: 3,
+      message: "System maintenance scheduled for tonight",
+      time: "2 hours ago",
+      unread: true
+    }
+  ]);
+  const [notificationsOpen, setNotificationsOpen] = useState(false);
   const [profileMenuOpen, setProfileMenuOpen] = useState(false);
   const profileMenuRef = useRef(null);
+  const notificationsRef = useRef(null);
 
   useEffect(() => {
     function handleClickOutside(event) {
       if (profileMenuRef.current && !profileMenuRef.current.contains(event.target)) {
         setProfileMenuOpen(false);
       }
+      if (notificationsRef.current && !notificationsRef.current.contains(event.target)) {
+        setNotificationsOpen(false);
+      }
     }
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  const unreadCount = notifications.filter(n => n.unread).length;
 
   return (
     <header className="sticky top-0 z-10 flex h-16 flex-shrink-0 bg-white/80 dark:bg-gray-800/90 backdrop-blur-lg shadow-sm">
@@ -94,15 +120,49 @@ export default function Header({ sidebarOpen, setSidebarOpen, darkMode, toggleDa
               <ChatIcon />
               <span className="hidden lg:inline">Messages</span>
             </button>
-            <button className="nav-item relative">
-              <BellIcon />
-              <span className="hidden lg:inline">Notifications</span>
-              {notifications > 0 && (
-                <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-red-500 text-white text-xs flex items-center justify-center">
-                  {notifications}
-                </span>
+            <div className="relative" ref={notificationsRef}>
+              <button 
+                className="nav-item relative"
+                onClick={() => setNotificationsOpen(!notificationsOpen)}
+              >
+                <BellIcon />
+                <span className="hidden lg:inline">Notifications</span>
+                {unreadCount > 0 && (
+                  <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-red-500 text-white text-xs flex items-center justify-center">
+                    {unreadCount}
+                  </span>
+                )}
+              </button>
+
+              {notificationsOpen && (
+                <div className="absolute right-0 mt-2 w-80 rounded-lg shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5">
+                  <div className="px-4 py-3 border-b border-gray-100 dark:border-gray-700">
+                    <h3 className="text-sm font-semibold">Notifications</h3>
+                  </div>
+                  <div className="max-h-96 overflow-y-auto">
+                    {notifications.map((notification) => (
+                      <div key={notification.id} className="notification-item">
+                        {notification.unread && <div className="notification-dot" />}
+                        <div className="flex-1">
+                          <p className="text-sm text-gray-700 dark:text-gray-300">{notification.message}</p>
+                          <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{notification.time}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="px-4 py-3 border-t border-gray-100 dark:border-gray-700">
+                    <button 
+                      className="text-sm text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300"
+                      onClick={() => {
+                        setNotifications(notifications.map(n => ({ ...n, unread: false })));
+                      }}
+                    >
+                      Mark all as read
+                    </button>
+                  </div>
+                </div>
               )}
-            </button>
+            </div>
             <button className="nav-item">
               <SettingsIcon />
               <span className="hidden lg:inline">Settings</span>
